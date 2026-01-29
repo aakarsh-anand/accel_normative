@@ -1,0 +1,11 @@
+python -m src.accel.normative.fit_normative \
+  --emb_dir outputs/embeddings_v0 \
+  --covars_csv /home/aakarsh/pd_learn/data/files/acc_qced.csv \
+  --outdir outputs/normative_v0 \
+  --id_col "Participant ID" \
+  --age_col "Age" \
+  --sex_col "Sex" \
+  --accmean_col "Overall acceleration average" \
+  --alpha 10 \
+  --n_knots 8 \
+  --degree 3

@@ -1,0 +1,12 @@
+global:
+  pull_date: "2026-01-29"
+  id_col_icd: "participant.eid"
+  accel_start_col: "participant.p90003"
+
+traits:
+  PD:
+    pd_cols: ["participant.p131022", "participant.p131023"]
+  RBD:
+    pd_cols: ["participant.pXXXXX"]     # replace
+  Falls:
+    pd_cols: ["participant.pYYYYY"]     # replace

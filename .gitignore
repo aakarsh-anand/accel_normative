@@ -1,0 +1,8 @@
+# Python bytecode files and directories
+__pycache__/
+*.pyc
+
+checkpoints/
+logs/
+outputs/
+wandb/

@@ -1,0 +1,55 @@
+seed: 7
+
+data:
+  accel_dir: /home/aakarsh/accelerometer/ts
+  covars_csv: /home/aakarsh/pd_learn/data/files/acc_qced.csv
+  id_col: "Participant ID"
+  max_subjects: null           # set e.g. 1000 for debug
+  num_workers: 32
+  batch_size: 128               # per GPU
+  window_hours: 12
+  windows_per_subject: 2       # sampled each __getitem__
+  min_fraction_nonmissing: 0.7
+  robust_scale: true
+  clip_value: 25
+
+ssl:
+  mask_ratio: 0.6
+  mask_span_min: 10            # in timesteps
+  mask_span_max: 200
+  recon_loss: huber
+  recon_delta: 1.0
+  byol_weight: 0.3
+  proj_dim: 512
+  pred_dim: 512
+
+model:
+  embed_dim: 256
+  base_channels: 64
+  depth: 4
+  dropout: 0.1
+
+optim:
+  lr: 1.0e-4
+  weight_decay: 0.01
+  warmup_steps: 2000
+  max_steps: 100000
+  grad_clip: 1.0
+  ema_decay_base: 0.99
+  ema_warmup_steps: 1000
+
+trainer:
+  precision: "16-mixed"
+  devices: 2
+  accelerator: "gpu"
+  strategy: "ddp"
+  log_every_n_steps: 50
+  val_check_interval: 100
+  limit_val_batches: 10
+  max_steps: 100000
+
+logging:
+  use_wandb: true
+  wandb_project: "accel-normative"
+  wandb_entity: null
+  run_name: "ssl_mae_byol"
