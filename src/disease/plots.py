@@ -1,4 +1,4 @@
-# src/accel/pd_plots.py
+# src/accel/plots.py
 from __future__ import annotations
 
 import os

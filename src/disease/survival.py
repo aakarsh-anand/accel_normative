@@ -1,4 +1,4 @@
-# src/accel/pd_survival.py
+# src/accel/survival.py
 from __future__ import annotations
 
 import os
@@ -61,7 +61,9 @@ def km_plot_with_risktable(df: pd.DataFrame, score_col: str, outpath: str, ymin:
     df = df.copy()
     df["group"] = tertile_groups(df[score_col])
 
-    fig, ax = plt.subplots(figsize=(7.2, 5.4))
+    # Taller figure so risk table fits cleanly
+    fig, ax = plt.subplots(figsize=(7.2, 6.6))
+
     kmfs = {}
     for g in ["Low", "Mid", "High"]:
         sub = df[df["group"] == g]
@@ -70,15 +72,26 @@ def km_plot_with_risktable(df: pd.DataFrame, score_col: str, outpath: str, ymin:
         kmf.plot_survival_function(ax=ax, ci_show=True)
         kmfs[g] = kmf
 
-    ax.set_title(f"Kaplan–Meier: incident PD by tertiles of {score_col}")
+    ax.set_title(f"Kaplan–Meier: incident outcome by tertiles of {score_col}")
     ax.set_xlabel("Years since accelerometer wear")
     ax.set_ylabel("Survival probability (not diagnosed)")
     ax.set_ylim(ymin, 1.0005)
 
-    # Add risk table under the plot
-    add_at_risk_counts(kmfs["Low"], kmfs["Mid"], kmfs["High"], ax=ax)
+    # Put legend in a clean spot
+    ax.legend(frameon=True, loc="lower left")
 
-    fig.tight_layout()
+    # IMPORTANT: Show only the rows we want (avoid huge table)
+    # Options: ["At risk"] or ["At risk", "Events"]
+    add_at_risk_counts(
+        kmfs["Low"], kmfs["Mid"], kmfs["High"],
+        ax=ax,
+        rows_to_show=["At risk"],   # <-- make compact
+        fontsize=10
+    )
+
+    # Add space at bottom for the table
+    fig.subplots_adjust(bottom=0.25)
+
     fig.savefig(outpath, dpi=300, bbox_inches="tight")
     plt.close(fig)
 
@@ -92,13 +105,25 @@ def cox_continuous(df: pd.DataFrame, score_col: str) -> pd.DataFrame:
     d[f"{score_col}_z"] = (x - x.mean()) / (x.std(ddof=0) + 1e-12)
 
     cph = CoxPHFitter()
-    cph.fit(d[[f"{score_col}_z", "duration_years", "event"]],
-            duration_col="duration_years", event_col="event")
-    summ = cph.summary.reset_index().rename(columns={"index": "term"})
-    # nicer naming
+    cph.fit(
+        d[[f"{score_col}_z", "duration_years", "event"]],
+        duration_col="duration_years",
+        event_col="event",
+    )
+
+    summ = cph.summary.reset_index()
+
+    # lifelines may name this column 'covariate' or 'index'
+    if "covariate" in summ.columns:
+        summ = summ.rename(columns={"covariate": "term"})
+    elif "index" in summ.columns:
+        summ = summ.rename(columns={"index": "term"})
+    elif "term" not in summ.columns:
+        # fallback: first column after reset_index is usually the term
+        summ = summ.rename(columns={summ.columns[0]: "term"})
+
     summ.loc[summ["term"] == f"{score_col}_z", "term"] = f"{score_col} (per +1 SD)"
     return summ
-
 
 def cox_tertiles(df: pd.DataFrame, score_col: str) -> pd.DataFrame:
     """
@@ -113,8 +138,17 @@ def cox_tertiles(df: pd.DataFrame, score_col: str) -> pd.DataFrame:
     cph = CoxPHFitter()
     cph.fit(d[["group_Mid", "group_High", "duration_years", "event"]],
             duration_col="duration_years", event_col="event")
-    summ = cph.summary.reset_index().rename(columns={"index": "term"})
-    # rename
+    summ = cph.summary.reset_index()
+    
+    # lifelines may name this column 'covariate' or 'index'
+    if "covariate" in summ.columns:
+        summ = summ.rename(columns={"covariate": "term"})
+    elif "index" in summ.columns:
+        summ = summ.rename(columns={"index": "term"})
+    elif "term" not in summ.columns:
+        # fallback: first column after reset_index is usually the term
+        summ = summ.rename(columns={summ.columns[0]: "term"})
+
     summ["term"] = summ["term"].replace({"group_Mid": "Mid vs Low", "group_High": "High vs Low"})
     return summ
 

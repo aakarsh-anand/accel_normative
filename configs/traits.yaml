@@ -1,12 +1,47 @@
 global:
-  pull_date: "2026-01-29"
+  pull_date: "2025-11-01"
+  icd_csv: "/home/aakarsh/aakarsh/icd_all.csv"
+  resid_dir: "outputs/residuals_v0"
+  outroot: "outputs/traits"
   id_col_icd: "participant.eid"
   accel_start_col: "participant.p90003"
+  score_col: "pd_axis_proj"
+  km_ymin: 0.600
 
 traits:
-  PD:
-    pd_cols: ["participant.p131022", "participant.p131023"]
-  RBD:
-    pd_cols: ["participant.pXXXXX"]     # replace
-  Falls:
-    pd_cols: ["participant.pYYYYY"]     # replace
+  pd :
+    event_date_cols: ["participant.p131022"] # G20
+  pd_movement : 
+    event_date_cols: ["participant.p131022", "participant.p131024", "participant.p131026", "participant.p131028", "participant.p131030", "participant.p131032"] # G20 - G25
+  ad_dementia : 
+    event_date_cols: ["participant.p130836", "participant.p130838", "participant.p130840", "participant.p130842", "participant.p131036", "participant.p131038", "participant.p131040"] # F00 - F03, G30 - G32
+  epilepsy : 
+    event_date_cols: ["participant.p131048", "participant.p131050"] # G40 - G41
+  ms : 
+    event_date_cols: ["participant.p131042", "participant.p131044", "participant.p131046"] # G35 - G37
+  polyneuro_other_pns : 
+    event_date_cols: ["participant.p131082", "participant.p131084", "participant.p131086", "participant.p131088", "participant.p131090"] # G60 - G64
+  sleep : 
+    event_date_cols: ["participant.p131060"] # G47
+  t2d : 
+    event_date_cols: ["participant.p130708"] # E11
+  heart_fail : 
+    event_date_cols: ["participant.p131354"] # I50
+  atr_fib : 
+    event_date_cols: ["participant.p131350"] # I48
+  isch_heart : 
+    event_date_cols: ["participant.p131296", "participant.p131298", "participant.p131300", "participant.p131302", "participant.p131304", "participant.p131306"] # I20 - I25
+  cerebrovascular : 
+    event_date_cols: ["participant.p131360", "participant.p131362", "participant.p131364", "participant.p131366", "participant.p131368", "participant.p131370", "participant.p131372", "participant.p131374", "participant.p131376", "participant.p131378"] # I60 - I69
+  copd_asthma : 
+    event_date_cols: ["participant.p131492", "participant.p131492"] # J44 - J45
+  osteoarthritis : 
+    event_date_cols: ["participant.p131868", "participant.p131870", "participant.p131872", "participant.p131874", "participant.p131876"] # M15 - M19
+  osteoporosis : 
+    event_date_cols: ["participant.p131962", "participant.p131964", "participant.p131966"] # M80 - M82
+  depression : 
+    event_date_cols: ["participant.p130894"] # F32
+  anxiety : 
+    event_date_cols: ["participant.p130904", "participant.p130906", "participant.p130908"] # F40 - F42
+  neurodegenerative : 
+    event_date_cols: ["participant.p131022", "participant.p131024", "participant.p131026", "participant.p131028", "participant.p131030", "participant.p131032", "participant.p130836", "participant.p130838", "participant.p130840", "participant.p130842", "participant.p131036", "participant.p131038", "participant.p131040", "participant.p131042", "participant.p131044", "participant.p131046"] # G20 - G25
