@@ -1,0 +1,365 @@
+0
+Participant ID
+Sex
+Age
+BMI
+Device ID
+Overall acceleration average
+Standard deviation of acceleration
+Average acceleration 00:00 - 00:59
+Average acceleration 01:00 - 01:59
+Average acceleration 02:00 - 02:59
+Average acceleration 03:00 - 03:59
+Average acceleration 04:00 - 04:59
+Average acceleration 05:00 - 05:59
+Average acceleration 06:00 - 06:59
+Average acceleration 07:00 - 07:59
+Average acceleration 08:00 - 08:59
+Average acceleration 09:00 - 09:59
+Average acceleration 10:00 - 10:59
+Average acceleration 11:00 - 11:59
+Average acceleration 12:00 - 12:59
+Average acceleration 13:00 - 13:59
+Average acceleration 14:00 - 14:59
+Average acceleration 15:00 - 15:59
+Average acceleration 16:00 - 16:59
+Average acceleration 17:00 - 17:59
+Average acceleration 18:00 - 18:59
+Average acceleration 19:00 - 19:59
+Average acceleration 20:00 - 20:59
+Average acceleration 21:00 - 21:59
+Average acceleration 22:00 - 22:59
+Average acceleration 23:00 - 23:59
+Monday average acceleration
+Tuesday average acceleration
+Wednesday average acceleration
+Thursday average acceleration
+Friday average acceleration
+Saturday average acceleration
+Sunday average acceleration
+No-wear time bias adjusted average acceleration
+No-wear time bias adjusted acceleration standard deviation
+No-wear time bias adjusted acceleration maximum
+No-wear time bias adjusted acceleration minimum
+No-wear time bias adjusted acceleration median
+Wear duration overall
+Light - Day average_0
+Light - Day average_1
+Light - Day average_2
+Light - Day average_3
+Light - Day average_4
+Light - Day average_5
+Light - Day average_6
+Light - Day hour average_0
+Light - Day hour average_1
+Light - Day hour average_2
+Light - Day hour average_3
+Light - Day hour average_4
+Light - Day hour average_5
+Light - Day hour average_6
+Light - Day hour average_7
+Light - Day hour average_8
+Light - Day hour average_9
+Light - Day hour average_10
+Light - Day hour average_11
+Light - Day hour average_12
+Light - Day hour average_13
+Light - Day hour average_14
+Light - Day hour average_15
+Light - Day hour average_16
+Light - Day hour average_17
+Light - Day hour average_18
+Light - Day hour average_19
+Light - Day hour average_20
+Light - Day hour average_21
+Light - Day hour average_22
+Light - Day hour average_23
+Light - Overall average
+Light - Weekday hour average_0
+Light - Weekday hour average_1
+Light - Weekday hour average_2
+Light - Weekday hour average_3
+Light - Weekday hour average_4
+Light - Weekday hour average_5
+Light - Weekday hour average_6
+Light - Weekday hour average_7
+Light - Weekday hour average_8
+Light - Weekday hour average_9
+Light - Weekday hour average_10
+Light - Weekday hour average_11
+Light - Weekday hour average_12
+Light - Weekday hour average_13
+Light - Weekday hour average_14
+Light - Weekday hour average_15
+Light - Weekday hour average_16
+Light - Weekday hour average_17
+Light - Weekday hour average_18
+Light - Weekday hour average_19
+Light - Weekday hour average_20
+Light - Weekday hour average_21
+Light - Weekday hour average_22
+Light - Weekday hour average_23
+Light - Weekend hour average_0
+Light - Weekend hour average_1
+Light - Weekend hour average_2
+Light - Weekend hour average_3
+Light - Weekend hour average_4
+Light - Weekend hour average_5
+Light - Weekend hour average_6
+Light - Weekend hour average_7
+Light - Weekend hour average_8
+Light - Weekend hour average_9
+Light - Weekend hour average_10
+Light - Weekend hour average_11
+Light - Weekend hour average_12
+Light - Weekend hour average_13
+Light - Weekend hour average_14
+Light - Weekend hour average_15
+Light - Weekend hour average_16
+Light - Weekend hour average_17
+Light - Weekend hour average_18
+Light - Weekend hour average_19
+Light - Weekend hour average_20
+Light - Weekend hour average_21
+Light - Weekend hour average_22
+Light - Weekend hour average_23
+Moderate-Vigorous - Day average_0
+Moderate-Vigorous - Day average_1
+Moderate-Vigorous - Day average_2
+Moderate-Vigorous - Day average_3
+Moderate-Vigorous - Day average_4
+Moderate-Vigorous - Day average_5
+Moderate-Vigorous - Day average_6
+Moderate-Vigorous - Day hour average_0
+Moderate-Vigorous - Day hour average_1
+Moderate-Vigorous - Day hour average_2
+Moderate-Vigorous - Day hour average_3
+Moderate-Vigorous - Day hour average_4
+Moderate-Vigorous - Day hour average_5
+Moderate-Vigorous - Day hour average_6
+Moderate-Vigorous - Day hour average_7
+Moderate-Vigorous - Day hour average_8
+Moderate-Vigorous - Day hour average_9
+Moderate-Vigorous - Day hour average_10
+Moderate-Vigorous - Day hour average_11
+Moderate-Vigorous - Day hour average_12
+Moderate-Vigorous - Day hour average_13
+Moderate-Vigorous - Day hour average_14
+Moderate-Vigorous - Day hour average_15
+Moderate-Vigorous - Day hour average_16
+Moderate-Vigorous - Day hour average_17
+Moderate-Vigorous - Day hour average_18
+Moderate-Vigorous - Day hour average_19
+Moderate-Vigorous - Day hour average_20
+Moderate-Vigorous - Day hour average_21
+Moderate-Vigorous - Day hour average_22
+Moderate-Vigorous - Day hour average_23
+Moderate-Vigorous - Overall average
+Moderate-Vigorous - Weekday hour average_0
+Moderate-Vigorous - Weekday hour average_1
+Moderate-Vigorous - Weekday hour average_2
+Moderate-Vigorous - Weekday hour average_3
+Moderate-Vigorous - Weekday hour average_4
+Moderate-Vigorous - Weekday hour average_5
+Moderate-Vigorous - Weekday hour average_6
+Moderate-Vigorous - Weekday hour average_7
+Moderate-Vigorous - Weekday hour average_8
+Moderate-Vigorous - Weekday hour average_9
+Moderate-Vigorous - Weekday hour average_10
+Moderate-Vigorous - Weekday hour average_11
+Moderate-Vigorous - Weekday hour average_12
+Moderate-Vigorous - Weekday hour average_13
+Moderate-Vigorous - Weekday hour average_14
+Moderate-Vigorous - Weekday hour average_15
+Moderate-Vigorous - Weekday hour average_16
+Moderate-Vigorous - Weekday hour average_17
+Moderate-Vigorous - Weekday hour average_18
+Moderate-Vigorous - Weekday hour average_19
+Moderate-Vigorous - Weekday hour average_20
+Moderate-Vigorous - Weekday hour average_21
+Moderate-Vigorous - Weekday hour average_22
+Moderate-Vigorous - Weekday hour average_23
+Moderate-Vigorous - Weekend hour average_0
+Moderate-Vigorous - Weekend hour average_1
+Moderate-Vigorous - Weekend hour average_2
+Moderate-Vigorous - Weekend hour average_3
+Moderate-Vigorous - Weekend hour average_4
+Moderate-Vigorous - Weekend hour average_5
+Moderate-Vigorous - Weekend hour average_6
+Moderate-Vigorous - Weekend hour average_7
+Moderate-Vigorous - Weekend hour average_8
+Moderate-Vigorous - Weekend hour average_9
+Moderate-Vigorous - Weekend hour average_10
+Moderate-Vigorous - Weekend hour average_11
+Moderate-Vigorous - Weekend hour average_12
+Moderate-Vigorous - Weekend hour average_13
+Moderate-Vigorous - Weekend hour average_14
+Moderate-Vigorous - Weekend hour average_15
+Moderate-Vigorous - Weekend hour average_16
+Moderate-Vigorous - Weekend hour average_17
+Moderate-Vigorous - Weekend hour average_18
+Moderate-Vigorous - Weekend hour average_19
+Moderate-Vigorous - Weekend hour average_20
+Moderate-Vigorous - Weekend hour average_21
+Moderate-Vigorous - Weekend hour average_22
+Moderate-Vigorous - Weekend hour average_23
+Sedentary - Day average_0
+Sedentary - Day average_1
+Sedentary - Day average_2
+Sedentary - Day average_3
+Sedentary - Day average_4
+Sedentary - Day average_5
+Sedentary - Day average_6
+Sedentary - Day hour average_0
+Sedentary - Day hour average_1
+Sedentary - Day hour average_2
+Sedentary - Day hour average_3
+Sedentary - Day hour average_4
+Sedentary - Day hour average_5
+Sedentary - Day hour average_6
+Sedentary - Day hour average_7
+Sedentary - Day hour average_8
+Sedentary - Day hour average_9
+Sedentary - Day hour average_10
+Sedentary - Day hour average_11
+Sedentary - Day hour average_12
+Sedentary - Day hour average_13
+Sedentary - Day hour average_14
+Sedentary - Day hour average_15
+Sedentary - Day hour average_16
+Sedentary - Day hour average_17
+Sedentary - Day hour average_18
+Sedentary - Day hour average_19
+Sedentary - Day hour average_20
+Sedentary - Day hour average_21
+Sedentary - Day hour average_22
+Sedentary - Day hour average_23
+Sedentary - Overall average
+Sedentary - Weekday hour average_0
+Sedentary - Weekday hour average_1
+Sedentary - Weekday hour average_2
+Sedentary - Weekday hour average_3
+Sedentary - Weekday hour average_4
+Sedentary - Weekday hour average_5
+Sedentary - Weekday hour average_6
+Sedentary - Weekday hour average_7
+Sedentary - Weekday hour average_8
+Sedentary - Weekday hour average_9
+Sedentary - Weekday hour average_10
+Sedentary - Weekday hour average_11
+Sedentary - Weekday hour average_12
+Sedentary - Weekday hour average_13
+Sedentary - Weekday hour average_14
+Sedentary - Weekday hour average_15
+Sedentary - Weekday hour average_16
+Sedentary - Weekday hour average_17
+Sedentary - Weekday hour average_18
+Sedentary - Weekday hour average_19
+Sedentary - Weekday hour average_20
+Sedentary - Weekday hour average_21
+Sedentary - Weekday hour average_22
+Sedentary - Weekday hour average_23
+Sedentary - Weekend hour average_0
+Sedentary - Weekend hour average_1
+Sedentary - Weekend hour average_2
+Sedentary - Weekend hour average_3
+Sedentary - Weekend hour average_4
+Sedentary - Weekend hour average_5
+Sedentary - Weekend hour average_6
+Sedentary - Weekend hour average_7
+Sedentary - Weekend hour average_8
+Sedentary - Weekend hour average_9
+Sedentary - Weekend hour average_10
+Sedentary - Weekend hour average_11
+Sedentary - Weekend hour average_12
+Sedentary - Weekend hour average_13
+Sedentary - Weekend hour average_14
+Sedentary - Weekend hour average_15
+Sedentary - Weekend hour average_16
+Sedentary - Weekend hour average_17
+Sedentary - Weekend hour average_18
+Sedentary - Weekend hour average_19
+Sedentary - Weekend hour average_20
+Sedentary - Weekend hour average_21
+Sedentary - Weekend hour average_22
+Sedentary - Weekend hour average_23
+Sleep - Day average_0
+Sleep - Day average_1
+Sleep - Day average_2
+Sleep - Day average_3
+Sleep - Day average_4
+Sleep - Day average_5
+Sleep - Day average_6
+Sleep - Day hour average_0
+Sleep - Day hour average_1
+Sleep - Day hour average_2
+Sleep - Day hour average_3
+Sleep - Day hour average_4
+Sleep - Day hour average_5
+Sleep - Day hour average_6
+Sleep - Day hour average_7
+Sleep - Day hour average_8
+Sleep - Day hour average_9
+Sleep - Day hour average_10
+Sleep - Day hour average_11
+Sleep - Day hour average_12
+Sleep - Day hour average_13
+Sleep - Day hour average_14
+Sleep - Day hour average_15
+Sleep - Day hour average_16
+Sleep - Day hour average_17
+Sleep - Day hour average_18
+Sleep - Day hour average_19
+Sleep - Day hour average_20
+Sleep - Day hour average_21
+Sleep - Day hour average_22
+Sleep - Day hour average_23
+Sleep - Overall average
+Sleep - Weekday hour average_0
+Sleep - Weekday hour average_1
+Sleep - Weekday hour average_2
+Sleep - Weekday hour average_3
+Sleep - Weekday hour average_4
+Sleep - Weekday hour average_5
+Sleep - Weekday hour average_6
+Sleep - Weekday hour average_7
+Sleep - Weekday hour average_8
+Sleep - Weekday hour average_9
+Sleep - Weekday hour average_10
+Sleep - Weekday hour average_11
+Sleep - Weekday hour average_12
+Sleep - Weekday hour average_13
+Sleep - Weekday hour average_14
+Sleep - Weekday hour average_15
+Sleep - Weekday hour average_16
+Sleep - Weekday hour average_17
+Sleep - Weekday hour average_18
+Sleep - Weekday hour average_19
+Sleep - Weekday hour average_20
+Sleep - Weekday hour average_21
+Sleep - Weekday hour average_22
+Sleep - Weekday hour average_23
+Sleep - Weekend hour average_0
+Sleep - Weekend hour average_1
+Sleep - Weekend hour average_2
+Sleep - Weekend hour average_3
+Sleep - Weekend hour average_4
+Sleep - Weekend hour average_5
+Sleep - Weekend hour average_6
+Sleep - Weekend hour average_7
+Sleep - Weekend hour average_8
+Sleep - Weekend hour average_9
+Sleep - Weekend hour average_10
+Sleep - Weekend hour average_11
+Sleep - Weekend hour average_12
+Sleep - Weekend hour average_13
+Sleep - Weekend hour average_14
+Sleep - Weekend hour average_15
+Sleep - Weekend hour average_16
+Sleep - Weekend hour average_17
+Sleep - Weekend hour average_18
+Sleep - Weekend hour average_19
+Sleep - Weekend hour average_20
+Sleep - Weekend hour average_21
+Sleep - Weekend hour average_22
+Sleep - Weekend hour average_23

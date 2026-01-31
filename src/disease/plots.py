@@ -142,10 +142,23 @@ def main():
     df["Status"] = pd.Categorical(df["Status"], categories=["Control","Prodromal","Diagnosed"], ordered=True)
 
     # A) deviation magnitude
-    boxplot_status(df.dropna(subset=["Status","resid_norm"]), "resid_norm",
-                   os.path.join(args.outdir, "residual_norm_by_status.png"),
-                   "Deviation magnitude ||r|| by PD status (age/sex/activity-adjusted)")
+    # Always plot Euclidean resid_norm if present.
+    if "resid_norm" in df.columns:
+        boxplot_status(
+            df.dropna(subset=["Status", "resid_norm"]),
+            "resid_norm",
+            os.path.join(args.outdir, "residual_norm_by_status.png"),
+            "Deviation magnitude ||r|| by PD status (age/sex/activity-adjusted)",
+        )
 
+    # Phase 1 upgrade: if Mahalanobis norm exists, plot it as well.
+    if "resid_norm_mahal" in df.columns:
+        boxplot_status(
+            df.dropna(subset=["Status", "resid_norm_mahal"]),
+            "resid_norm_mahal",
+            os.path.join(args.outdir, "residual_norm_mahal_by_status.png"),
+            "Deviation magnitude (Mahalanobis) by PD status (reference-set calibrated)",
+        )
     # B) PD-axis projection
     boxplot_status(df.dropna(subset=["Status","pd_axis_proj"]), "pd_axis_proj",
                    os.path.join(args.outdir, "pd_axis_proj_by_status.png"),

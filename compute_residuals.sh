@@ -1,6 +1,13 @@
-python -m src.accel.normative.compute_residuals \
-  --emb_dir outputs/embeddings_v0 \
+# python -m src.accel.normative.compute_residuals \
+#   --emb_dir outputs/embeddings_v0 \
+#   --covars_csv /home/aakarsh/pd_learn/data/files/acc_qced.csv \
+#   --model_path outputs/normative_v0/normative_model.joblib \
+#   --outdir outputs/residuals_v0 \
+#   --id_col "Participant ID"
+
+python -m src.normative.compute_residuals \
+  --emb_dir outputs/embeddings_v1 \
   --covars_csv /home/aakarsh/pd_learn/data/files/acc_qced.csv \
-  --model_path outputs/normative_v0/normative_model.joblib \
-  --outdir outputs/residuals_v0 \
+  --model_path outputs/normative_v1_control5yr/normative_model.joblib \
+  --outdir outputs/residuals_v1_control5yr \
   --id_col "Participant ID"

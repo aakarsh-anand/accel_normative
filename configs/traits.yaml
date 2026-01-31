@@ -1,12 +1,12 @@
 global:
   pull_date: "2025-11-01"
   icd_csv: "/home/aakarsh/aakarsh/icd_all.csv"
-  resid_dir: "outputs/residuals_v0"
-  outroot: "outputs/traits"
+  resid_dir: "outputs/residuals_v1_control5yr"
+  outroot: "outputs/traits_v1_control5yr_resid"
   id_col_icd: "participant.eid"
   accel_start_col: "participant.p90003"
   score_col: "pd_axis_proj"
-  km_ymin: 0.600
+  km_ymin: 0.985
 
 traits:
   pd :

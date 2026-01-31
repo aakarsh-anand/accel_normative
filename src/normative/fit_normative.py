@@ -1,12 +1,13 @@
-# src/accel/fit_normative.py
+# src/normative/fit_normative.py
 from __future__ import annotations
 
 import os
 import argparse
 import numpy as np
 import pandas as pd
+import joblib
 
-from .normative import NormativeConfig, fit_normative_model, save_model
+from .normative import NormativeConfig, fit_normative_model, save_model, fit_residual_geometry
 
 
 def main():
@@ -25,6 +26,7 @@ def main():
 
     ap.add_argument("--ref_ids_csv", default=None, help="Optional CSV with a column of Participant IDs to fit normative model on")
     ap.add_argument("--ref_id_col", default=None, help="ID column name in ref_ids_csv (default: same as --id_col)")
+    ap.add_argument("--geom_var", type=float, default=0.90, help="PCA variance to retain for residual geometry (Phase 1)")
     args = ap.parse_args()
 
     os.makedirs(args.outdir, exist_ok=True)
@@ -58,6 +60,24 @@ def main():
     )
 
     model, metrics = fit_normative_model(emb=emb, covars=df, cfg=cfg, ref_mask=ref_mask)
+
+    # --- Phase 1: fit residual geometry on the SAME reference set used for fitting ---
+    # This does not affect the mean model; it defines a statistically meaningful metric
+    # for deviation magnitude (and optionally whitened residual vectors).
+    Xdf = df[[cfg.age_col, cfg.sex_col, cfg.accmean_col]].copy()
+    if ref_mask is None:
+        ref_mask_geom = np.ones(len(df), dtype=bool)
+    else:
+        ref_mask_geom = ref_mask
+
+    mu_fit = model.predict(Xdf.loc[ref_mask_geom])
+    resid_fit = emb[ref_mask_geom] - mu_fit
+    geometry = fit_residual_geometry(resid_fit=resid_fit, var_explained=args.geom_var)
+
+    geom_path = os.path.join(args.outdir, "geometry.joblib")
+    joblib.dump(geometry, geom_path)
+    print("[OK] saved geometry:", geom_path)
+
 
     out_model = os.path.join(args.outdir, "normative_model.joblib")
     save_model(model, cfg, out_model)

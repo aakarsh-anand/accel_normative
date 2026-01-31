@@ -66,6 +66,7 @@ def collect_trait_summary(trait_dir: Path, trait_name: str) -> Dict[str, Any]:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--traits_yaml", required=True)
+    ap.add_argument("--resid_key", required=True)
     ap.add_argument("--skip_plots", action="store_true")
     ap.add_argument("--skip_survival", action="store_true")
     args = ap.parse_args()
@@ -125,6 +126,7 @@ def main():
             "--resid_dir", resid_dir,
             "--pd_labels_csv", str(labels_csv),
             "--outdir", str(axis_dir),
+            "--resid_key", args.resid_key,
         ])
 
         # 3) plots

@@ -22,11 +22,16 @@ def main():
     ap.add_argument("--id_col", default="Participant ID")
     ap.add_argument("--n_splits", type=int, default=5)
     ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--resid_key", default="resid", help="Key in normative_residuals.npz to use as features (e.g., resid or resid_w)")
     args = ap.parse_args()
 
     os.makedirs(args.outdir, exist_ok=True)
 
-    resid = np.load(os.path.join(args.resid_dir, "normative_residuals.npz"))["resid"].astype(np.float32)  # [N,D]
+    npz_path = os.path.join(args.resid_dir, "normative_residuals.npz")
+    npz = np.load(npz_path)
+    if args.resid_key not in npz.files:
+        raise KeyError(f"--resid_key='{args.resid_key}' not found in {npz_path}. Available keys: {npz.files}")
+    resid = npz[args.resid_key].astype(np.float32)  # [N,D] or [N,K]
     subj = pd.read_csv(os.path.join(args.resid_dir, "residual_summary.csv"))
     subj_id = subj[args.id_col].astype(str)
 
@@ -67,6 +72,7 @@ def main():
         "n": int(len(y)),
         "n_cases": int(y.sum()),
         "n_controls": int((y == 0).sum()),
+        "resid_key": str(args.resid_key),
     }
     pd.DataFrame([metrics]).to_csv(os.path.join(args.outdir, "pd_axis_cv_metrics.csv"), index=False)
     print(pd.DataFrame([metrics]).to_string(index=False))
