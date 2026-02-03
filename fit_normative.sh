@@ -13,13 +13,18 @@
 python -m src.normative.fit_normative \
   --emb_dir outputs/embeddings_v1 \
   --covars_csv /home/aakarsh/pd_learn/data/files/acc_qced.csv \
-  --outdir outputs/normative_v1_control5yr \
+  --wear_dates_csv outputs/wear_dates.csv \
+  --outdir outputs/normative \
   --id_col "Participant ID" \
   --age_col "Age" \
   --sex_col "Sex" \
+  --height_col "height" \
+  --townsend_col "townsend" \
+  --smoking_col "smoking" \
   --accmean_col "Overall acceleration average" \
   --ref_ids_csv outputs/reference_sets/controls_5yr.csv \
   --geom_var 0.99 \
-  --alpha 10 \
+  --cv_alphas "0.1,1,10,100,1000" \
   --n_knots 8 \
   --degree 3
+   # --alpha 10

@@ -12,6 +12,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 import pandas as pd
+import numpy as np
 from tqdm import tqdm
 
 
@@ -46,8 +47,8 @@ def extract_date_from_header(csv_path: str) -> dict:
         
         # Extract month and create cyclic features
         month = wear_date.month
-        month_sin = round(float(pd.np.sin(2 * pd.np.pi * month / 12)), 6)
-        month_cos = round(float(pd.np.cos(2 * pd.np.pi * month / 12)), 6)
+        month_sin = round(float(np.sin(2 * np.pi * month / 12)), 6)
+        month_cos = round(float(np.cos(2 * np.pi * month / 12)), 6)
         
         return {
             'Participant ID': participant_id,

@@ -18,6 +18,11 @@ def main():
     ap.add_argument("--id_col", default="Participant ID")
     ap.add_argument("--age_col", default="Age")
     ap.add_argument("--sex_col", default="Sex")
+    ap.add_argument("--bmi_col", default="BMI")
+    ap.add_argument("--wear_col", default="Wear duration overall")
+    ap.add_argument("--height_col", default="height")
+    ap.add_argument("--townsend_col", default="townsend")
+    ap.add_argument("--smoking_col", default="smoking")
     ap.add_argument("--accmean_col", default="Overall acceleration average")
     ap.add_argument("--test_size", type=float, default=0.2)
     ap.add_argument("--seed", type=int, default=7)
@@ -70,7 +75,7 @@ def main():
         yhat = (p >= 0.5).astype(int)
         results[name] = {
             "n": int(len(ym)),
-            "auroc": float(roc_auc_score(yte, p)),
+            "auroc": float(roc_auc_score(yte, p, multi_class='ovr')),
             "acc": float(accuracy_score(yte, yhat)),
         }
 
@@ -85,6 +90,35 @@ def main():
     # Mean acceleration probe
     accm = pd.to_numeric(df.get(args.accmean_col), errors="coerce").to_numpy(dtype=float)
     probe_regression(accm, "acc_mean")
+
+    # BMI probe
+    bmi = pd.to_numeric(df.get(args.bmi_col), errors="coerce").to_numpy(dtype=float)
+    probe_regression(bmi, "bmi")
+
+    # Wear probe
+    wear = pd.to_numeric(df.get(args.wear_col), errors="coerce").to_numpy(dtype=float)
+    probe_regression(wear, "wear")
+
+    # Wear probe
+    height = pd.to_numeric(df.get(args.height_col), errors="coerce").to_numpy(dtype=float)
+    probe_regression(height, "height")
+
+    # townsend probe
+    townsend = pd.to_numeric(df.get(args.townsend_col), errors="coerce").to_numpy(dtype=float)
+    probe_regression(townsend, "townsend")
+
+    # smoking probe
+    # smoking = (df.get(args.smoking_col).astype('category').cat.codes).to_numpy(dtype=float)
+    # probe_classification(smoking, "smoking")
+
+    # Month probe
+    month_csv = pd.read_csv("/home/aakarsh/accel_normative/outputs/wear_dates.csv", dtype={"Participant ID": str})
+    month_csv = month_csv.merge(cov, on=args.id_col, how="right")
+    month_sin = month_csv["wear_month_sin"].to_numpy(dtype=float)
+    probe_regression(month_sin, "month_sin")
+
+    month_cos = month_csv["wear_month_cos"].to_numpy(dtype=float)
+    probe_regression(month_cos, "month_cos")
 
     out = pd.DataFrame(results).T.reset_index().rename(columns={"index": "probe"})
     out_path = os.path.join(args.emb_dir, "probe_results.csv")

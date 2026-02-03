@@ -1,0 +1,24 @@
+# configs/genetics.yaml
+traits_yaml: configs/traits.yaml
+traits_root: outputs/traits
+residual_summary_csv: outputs/residuals_v1_controls_pca/residual_summary.csv
+
+id_col: Participant ID
+
+# Axis score location and column (adjust to your actual axis output)
+axis_scores_relpath: axis/pd_axis_scores.csv
+axis_score_col_candidates: [axis_score, pd_axis, score, proj, logit]
+
+# GWAS (plink2)
+plink2: plink2
+genotype_prefix: /path/to/genotypes/ukb_genotypes   # plink2 --pfile prefix
+covar_csv: /path/to/covariates.csv
+covar_cols: [age, sex, PC1, PC2, PC3, PC4, PC5, PC6, PC7, PC8, PC9, PC10]
+out_root: outputs/genetics
+
+# LDSC
+ldsc_py: /path/to/ldsc/ldsc.py
+munge_sumstats_py: /path/to/ldsc/munge_sumstats.py
+ld_scores: /path/to/eur_w_ld_chr/
+w_ld_chr: /path/to/eur_w_ld_chr/
+hm3_snplist: /path/to/w_hm3.snplist
